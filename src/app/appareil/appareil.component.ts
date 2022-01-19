@@ -20,4 +20,13 @@ export class AppareilComponent implements OnInit {
     return this.appareilStatus;
   }
 
+  getColor(){
+    if(this.appareilStatus === 'allumer'){
+      return 'green';
+    } else if (this.appareilStatus === 'eteint'){
+      return 'red';
+    }
+    return null;
+  }
+
 }

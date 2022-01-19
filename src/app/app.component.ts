@@ -8,9 +8,20 @@ import { Component } from '@angular/core';
 export class AppComponent {
   isAuth = false;
 
-  appareilOne = 'Machine à laver';
-  appareilTwo = 'Television';
-  appareilThree = 'Ordinateur';
+  appareils = [
+    {
+      name:'Machine à laver',
+      status: 'allumer'
+    },
+    {
+      name:'Television',
+      status: 'allumer'
+    },
+    {
+      name:'Ordinateur',
+      status: 'eteint'
+    }
+  ];
 
   constructor(){
     setTimeout(
