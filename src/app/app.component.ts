@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AppareilService } from './services/appareil.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isAuth = false;
+
+  //UILISATION DU PIPE DATE
+  //lastUpdate = new Date();
+
+  //UTILISATION DU PIPE ASYNC
+  lastUpdate = new Promise<Date>(
+    (resolve, rejects) =>{
+      const date = new Date();
+      setTimeout(
+        () =>{
+          resolve(date);
+        }, 2000
+      );
+    }
+  );
 
   appareils = [
     {
@@ -23,7 +40,7 @@ export class AppComponent {
     }
   ];
 
-  constructor(){
+  constructor(private appareilService : AppareilService){
     setTimeout(
       ()=>{
         this.isAuth = true;
