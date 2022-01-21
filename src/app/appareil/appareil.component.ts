@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppareilService } from './../services/appareil.service';
 
 @Component({
   selector: 'app-appareil',
@@ -11,7 +12,9 @@ export class AppareilComponent implements OnInit {
 
   @Input() appareilStatus: string;
 
-  constructor() { }
+  @Input() indexOfAppareil : number;
+
+  constructor(private AppareilService: AppareilService) { }
 
   ngOnInit(): void {
   }
@@ -28,5 +31,12 @@ export class AppareilComponent implements OnInit {
     }
     return null;
   }
+  
+  onSwitchOn(){
+    this.AppareilService.switchOnOne(this.indexOfAppareil);
+  }
 
+  onSwitchOff(){
+    this.AppareilService.switchOffOne(this.indexOfAppareil);
+  }
 }
